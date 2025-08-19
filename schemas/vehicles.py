@@ -1,4 +1,4 @@
 from pydantic import BaseModel
 
-class DriverCreate(BaseModel):
+class VehicleCreate(BaseModel):
     pass
