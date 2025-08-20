@@ -57,4 +57,3 @@ def client():
     app.dependency_overrides[owner_required] = override_owner_required
     with TestClient(app) as c:
         yield c
-
