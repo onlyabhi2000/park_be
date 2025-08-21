@@ -1,18 +1,10 @@
 from fastapi import FastAPI
-from app.routes import auth
-from app.configuration.db import Base
-from app.routes import lots
-from app.routes import vehicle , drivers , parking_slot
-
+from app.configuration.db import Base  
+from app.utils.router_helper import include_all_routers 
 
 app = FastAPI()
-app.include_router(auth.router)
-app.include_router(lots.router)
-app.include_router(vehicle.router)
-app.include_router(drivers.router)
-app.include_router(parking_slot.router)
 
-
+include_all_routers(app)
 
 @app.get("/")
 def read_root():

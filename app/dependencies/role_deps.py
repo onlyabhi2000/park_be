@@ -7,9 +7,9 @@ from app.models.attendant import Attendant
 
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 
-bearer_scheme = HTTPBearer()
+# bearer_scheme = HTTPBearer()
 
-def get_current_identity(credentials: HTTPAuthorizationCredentials = Depends(bearer_scheme), db: Session = Depends(get_db)):
+def get_current_identity(credentials: HTTPAuthorizationCredentials = Depends(HTTPBearer), db: Session = Depends(get_db)):
     token = credentials.credentials  
     payload = decode_token(token)
     if not payload:
