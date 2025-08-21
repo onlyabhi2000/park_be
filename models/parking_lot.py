@@ -18,7 +18,6 @@ class ParkingLot(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
 
-    # Use string reference, no direct import
     owner = relationship("Owner", back_populates="lots")
     slots = relationship("ParkingSlot", back_populates="lot", cascade="all,delete-orphan")
     tickets = relationship("ParkingTicket", back_populates="lot")

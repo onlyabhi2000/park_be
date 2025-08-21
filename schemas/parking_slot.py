@@ -7,7 +7,7 @@ class ParkingSlotBase(BaseModel):
     row_identifier: str
     is_handicap_accessible: Optional[bool] = False
     distance_from_exit: Optional[int] = None
-    slot_size: Optional[str] = "standard"  # standard, large, compact
+    slot_size: Optional[str] = "standard" 
 
 
 

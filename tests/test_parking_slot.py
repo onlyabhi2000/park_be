@@ -11,7 +11,6 @@ client = TestClient(app)
 
 @pytest.fixture
 def db():
-    """Get DB session for testing."""
     from configuration.db import SessionLocal
     db = SessionLocal()
     try:
@@ -22,7 +21,6 @@ def db():
 
 @pytest.fixture
 def create_parking_lot(db: Session):
-    """Create a test parking lot before slot tests."""
     lot = ParkingLot(
         name="Test Lot",
         location="Test City",
@@ -35,7 +33,6 @@ def create_parking_lot(db: Session):
 
 
 def test_create_parking_slot_success(create_parking_lot):
-    """Test successful parking slot creation."""
     response = client.post(
         "/parking-slots/",
         json={
@@ -55,12 +52,11 @@ def test_create_parking_slot_success(create_parking_lot):
 
 
 def test_create_parking_slot_invalid_lot():
-    """Try creating a slot with non-existing parking lot."""
     response = client.post(
         "/parking-slots/",
         json={
             "slot_number": "B1",
-            "lot_id": 9999,  # Invalid lot
+            "lot_id": 9999,
             "row_identifier": "R2",
             "is_handicap_accessible": False,
             "distance_from_exit": 10,
@@ -74,8 +70,7 @@ def test_create_parking_slot_invalid_lot():
 
 
 def test_get_all_parking_slots(create_parking_lot):
-    """Test fetching all slots in a parking lot."""
-    # Create a slot first
+
     client.post(
         "/parking-slots/",
         json={
@@ -99,7 +94,6 @@ def test_get_all_parking_slots(create_parking_lot):
 
 def test_get_parking_slot_by_id(create_parking_lot):
     """Fetch parking slot by ID."""
-    # Create slot
     slot_resp = client.post(
         "/parking-slots/",
         json={

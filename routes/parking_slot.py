@@ -9,7 +9,6 @@ from utils.response import standard_response  # <-- your helper
 router = APIRouter(prefix="/slots", tags=["Parking Slots"])
 
 def _dump(slot) -> dict:
-    # ORM -> dict (Pydantic v2)
     return ParkingSlotOut.model_validate(slot).model_dump()
 
 @router.post("/")

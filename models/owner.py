@@ -14,5 +14,4 @@ class Owner(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
 
-    # Use string reference, no import
     lots = relationship("ParkingLot", back_populates="owner", cascade="all,delete", passive_deletes=True)

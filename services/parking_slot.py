@@ -14,7 +14,6 @@ def _get_lot_or_404(db: Session, lot_id: int) -> ParkingLot:
 def create_parking_slot(db: Session, payload: ParkingSlotCreate) -> ParkingSlot:
     _get_lot_or_404(db, payload.lot_id)
 
-    # Enforce unique slot_number within a lot
     exists = (
         db.query(ParkingSlot)
         .filter(ParkingSlot.lot_id == payload.lot_id, ParkingSlot.slot_number == payload.slot_number)

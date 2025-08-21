@@ -25,7 +25,6 @@ def get_current_identity(credentials: HTTPAuthorizationCredentials = Depends(bea
         raise HTTPException(status_code=401, detail="Invalid authentication")
     return {"role": role, "obj": obj}
 
-    return {"role": role, "obj": obj}
 
 def owner_required(identity=Depends(get_current_identity)):
     if identity["role"] != "OWNER":
