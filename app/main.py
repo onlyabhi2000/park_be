@@ -1,9 +1,8 @@
 from fastapi import FastAPI
-from routes import auth
-import models
-from configuration.db import Base
-from routes import lots
-from routes import vehicle , drivers , parking_slot
+from app.routes import auth
+from app.configuration.db import Base
+from app.routes import lots
+from app.routes import vehicle , drivers , parking_slot
 
 
 app = FastAPI()

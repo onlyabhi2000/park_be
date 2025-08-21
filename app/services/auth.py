@@ -1,10 +1,10 @@
 import uuid
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
-from core.security import hash_password, verify_password, create_access_token
-from models.owner import Owner
-from models.attendant import Attendant
-from schemas.auth import OwnerCreate, AttendantCreate, LoginRequest
+from app.core.security import hash_password, verify_password, create_access_token
+from app.models.owner import Owner
+from app.models.attendant import Attendant
+from app.schemas.auth import OwnerCreate, AttendantCreate, LoginRequest
 
 
 def register_owner_service(data: OwnerCreate, db: Session):

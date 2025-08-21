@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Text, Boolean, ForeignKey, DateTime, func
-from configuration.db import Base
+from app.configuration.db import Base
 
 class LotNotification(Base):
     __tablename__ = "lot_notifications"

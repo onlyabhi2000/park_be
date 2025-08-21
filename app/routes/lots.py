@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from dependencies.role_deps import owner_required
-from configuration.db import get_db
-from services.lots import create_lot_service
-from schemas.lots import ParkingLotCreate, ParkingLotOut
-from utils.response import standard_response
+from app.configuration.db import get_db
+from app.dependencies.role_deps import owner_required
+from app.services.lots import create_lot_service
+from app.schemas.lots import ParkingLotCreate, ParkingLotOut
+from app.utils.response import standard_response
 
 router = APIRouter(prefix="/lots", tags=["Parking Lots"])
 

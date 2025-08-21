@@ -1,9 +1,9 @@
 from fastapi import APIRouter , Depends
 from sqlalchemy.orm import Session
-from configuration.db import get_db
-from schemas.driver import DriverCreate , DriverOut
-from services.driver import create_driver ,get_driver
-from utils.response import standard_response
+from app.configuration.db import get_db
+from app.schemas.driver import DriverCreate , DriverOut
+from app.services.driver import create_driver ,get_driver
+from app.utils.response import standard_response
 
 router = APIRouter(prefix = "/drivers" , tags = ["Drivers"])
 @router.post("/")

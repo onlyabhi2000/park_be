@@ -3,7 +3,7 @@ import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from main import app
+from app.main import app
 from configuration.db import get_db, Base
 from dependencies.role_deps import owner_required
 from models.owner import Owner

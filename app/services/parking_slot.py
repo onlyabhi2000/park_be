@@ -1,9 +1,9 @@
 # services/parking_slot.py
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
-from models.parking_slot import ParkingSlot
-from models.parking_lot import ParkingLot
-from schemas.parking_slot import ParkingSlotCreate, ParkingSlotUpdate
+from app.models.parking_slot import ParkingSlot
+from app.models.parking_lot import ParkingLot
+from app.schemas.parking_slot import ParkingSlotCreate, ParkingSlotUpdate
 
 def _get_lot_or_404(db: Session, lot_id: int) -> ParkingLot:
     lot = db.query(ParkingLot).filter(ParkingLot.id == lot_id).first()

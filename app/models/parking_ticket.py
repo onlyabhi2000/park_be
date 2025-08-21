@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, Numeric, func
 from sqlalchemy.orm import relationship
-from configuration.db import Base
+from app.configuration.db import Base
 
 class ParkingTicket(Base):
     __tablename__ = "parking_tickets"

@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException
-from models.driver import Driver
-from schemas.driver import DriverCreate
+from app.models.driver import Driver
+from app.schemas.driver import DriverCreate
 
 def create_driver(db: Session, payload: DriverCreate) -> Driver:
     existing = db.query(Driver).filter(Driver.phone == payload.phone).first()

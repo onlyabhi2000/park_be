@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException
-from models.vehicle import Vehicle
-from models.driver import Driver
-from schemas.vehicles import VehicleCreate
+from app.models.vehicle import Vehicle
+from app.models.driver import Driver
+from app.schemas.vehicles import VehicleCreate
 
 def create_vehicle(db: Session, payload: VehicleCreate) -> Vehicle:
     existing = db.query(Vehicle).filter(Vehicle.plate_number == payload.plate_number).first()

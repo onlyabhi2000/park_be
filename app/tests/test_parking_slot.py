@@ -3,7 +3,7 @@ from fastapi.testclient import TestClient
 from models.parking_lot import ParkingLot
 from sqlalchemy.orm import Session
 from models.parking_slot import ParkingSlot
-from main import app
+from app.main import app
 from configuration.db import get_db
 
 client = TestClient(app)

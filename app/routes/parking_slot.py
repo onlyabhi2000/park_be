@@ -1,10 +1,10 @@
 # routes/parking_slots.py
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from configuration.db import get_db
-from schemas.parking_slot import ParkingSlotCreate, ParkingSlotUpdate, ParkingSlotOut
-from services import parking_slot as svc
-from utils.response import standard_response  # <-- your helper
+from app.configuration.db import get_db
+from app.schemas.parking_slot import ParkingSlotCreate, ParkingSlotUpdate, ParkingSlotOut
+from app.services import parking_slot as svc
+from app.utils.response import standard_response  # <-- your helper
 
 router = APIRouter(prefix="/slots", tags=["Parking Slots"])
 
