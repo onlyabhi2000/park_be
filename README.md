@@ -19,7 +19,6 @@ The system provides APIs to register users with different roles, manage parking 
   - Store entry/exit times and calculate charges  
   - Release slot on vehicle exit  
 - **Role-Based Access Control**  
-- **Standardized API Response Format** for consistency  
 
 ---
 
@@ -52,54 +51,44 @@ alembic upgrade head
 
 ### Start the server
 uvicorn app.main:app --reload
-
 ## API Endpoints
-Authentication
-```POST /auth/register
 
-POST /auth/login
+### Authentication
+- **POST** `/auth/register`
+- **POST** `/auth/login`
 
-Parking Lots
+### Parking Lots
+- **GET** `/lots/`
+- **POST** `/lots/`
 
-GET /lots/
+### Parking Slots
+- **GET** `/slots/`
+- **POST** `/slots/`
 
-POST /lots/
+### Drivers
+- **GET** `/drivers/`
+- **POST** `/drivers/`
 
-Parking Slots
+### Vehicles
+- **GET** `/vehicles/`
+- **POST** `/vehicles/`
 
-GET /slots/
-
-POST /slots/
-
-Drivers
-
-GET /drivers/
-
-POST /drivers/
-
-Vehicles
-
-GET /vehicles/
-
-POST /vehicles/
-
-Transactions
-
-GET /transactions/
-
-POST /transactions/
-```
-
+### Transactions
+- **GET** `/transactions/`
+- **POST** `/transactions/`
 
 
 ## Tech Stack
 
-```FastAPI – Web framework
+- **FastAPI** – Web framework
+- **SQLAlchemy** – ORM
+- **PostgreSQL** – Database
+- **Alembic** – Migrations
+- **Uvicorn** – ASGI server
 
-SQLAlchemy – ORM
 
-PostgreSQL – Database
+## API Documentation
 
-Alembic – Migrations
+Access interactive API documentation at:
 
-Uvicorn – ASGI server```
+- **Swagger UI**: http://localhost:8000/docs
