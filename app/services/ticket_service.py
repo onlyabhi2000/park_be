@@ -161,7 +161,7 @@ def allocate_ticket(
     if not vehicle:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Vehicle not found")
 
-    # Optional: ensure the vehicle belongs to the driver (uncomment if required by your business rules)
+    # Optional: ensure the vehicle belongs to the driver 
     if vehicle.owner_id and vehicle.owner_id != driver.id:
         raise HTTPException(status_code=400, detail="Vehicle does not belong to this driver")
 
@@ -194,7 +194,7 @@ def allocate_ticket(
             driver_id=driver.id,
             lot_id=lot_id,
             slot_id=slot.id,
-            entry_time=datetime.now(timezone.utc)(),
+            entry_time=datetime.now(timezone.utc),
             payment_status="pending",
             is_active=True,
             attendant_id=attendant_id,
