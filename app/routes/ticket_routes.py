@@ -52,5 +52,10 @@ def close_ticket(ticket_id: int, payload: TicketClose, db: Session = Depends(get
 
 
 @router.get("/{ticket_id}", response_model=TicketResponse)
-def get_ticket( ):
-    pass
+def get_ticket(ticket_id: int, db: Session = Depends(get_db)):
+    ticket = ticket_service.get_ticket(db, ticket_id)
+    return standard_response(
+        status_code=200,
+        message="Ticket retrieved successfully",
+        data=ticket
+    )
