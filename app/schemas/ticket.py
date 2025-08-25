@@ -14,14 +14,14 @@ class TicketCreate(BaseModel):
     attendant_id: Optional[int] = None
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class TicketClose(BaseModel):
     mark_paid: bool = False
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 # Core Ticket Response
@@ -47,7 +47,7 @@ class TicketOut(BaseModel):
     updated_at: Optional[datetime] = None
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 

@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routes import auth, lots, vehicle, drivers, parking_slot
+from app.routes import auth, lots, vehicle, drivers, parking_slot,ticket_routes
 
 def include_all_routers(app: FastAPI):
     """
@@ -11,7 +11,8 @@ def include_all_routers(app: FastAPI):
         lots.router,
         vehicle.router,
         drivers.router,
-        parking_slot.router
+        parking_slot.router,
+        ticket_routes.router
     ]
     
     for router in routers:
